@@ -1,4 +1,5 @@
 #include<iostream>
+#include<string.h>
 using namespace std;
 struct nodo{
     char nomb[20];
@@ -76,7 +77,7 @@ nodo *inserta_ad(nodo *p, char ref[]){
     if(p!=NULL){
         r=p;
         cen=0;
-        while(r->nomb!=ref and cen==0){
+        while(r!=NULL and strcmp(r->nomb,ref)!=0 and cen==0){
             if(r->sig!=NULL){
                 t=r;
                 r=r->sig;
