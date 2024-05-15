@@ -77,7 +77,7 @@ nodo *inserta_ad(nodo *p, char ref[]){
     if(p!=NULL){
         r=p;
         cen=0;
-        while(r!=NULL and strcmp(r->nomb,ref)!=0 and cen==0){
+        while(strcmp(r->nomb,ref)!=0 and cen==0){
             if(r->sig!=NULL){
                 t=r;
                 r=r->sig;
@@ -102,6 +102,32 @@ nodo *inserta_ad(nodo *p, char ref[]){
     }
     else cout<<"LA LISTA ESTA VACIA";
     return (p);
+}
+nodo *inserta_dd(nodo *p, char ref[]){
+    nodo *q, *r;
+    int cen;
+    if(p!=NULL){
+        r=p;
+        cen=0;
+        while(strcmp(r->nomb,ref)!=0 and cen==0){           //r->nomb!=ref
+            if(r->sig!=NULL){
+                r=r->sig;
+            }
+            else
+                cen=1;
+        }
+        if(cen==0){
+            q=new(nodo);
+            cout<<"ESCRIBA EL DATO A INSERTAR DESPUES DEL DATO REFERENCIAL: ";
+            cin>>q->nomb;
+            q->sig=r->sig;
+            r->sig=q;
+        }
+        else cout<<"EL DATO REFERENCIAL NO SE ENCONTRO";   
+    }
+    else cout<<"LA LISTA ESTA VACIA";
+    return (p);
+    
 }
 void recorre(nodo *p){
     nodo *q;

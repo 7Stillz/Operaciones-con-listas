@@ -51,6 +51,12 @@ int main(){
                 cin>>nombre;
                 p=inserta_ad(p,nombre);
                 break;
+            case 6:
+                system("cls");
+                cout<<"ESCRIBA EL DATO REFERENCIAL PARA INSERTARLO DESPUES DE: ";
+                cin>>nombre;
+                p=inserta_dd(p,nombre);
+                break;
             case 12:
                 system("cls");
                 recorre(p);
