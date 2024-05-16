@@ -129,6 +129,123 @@ nodo *inserta_dd(nodo *p, char ref[]){
     return (p);
     
 }
+nodo *elimina_p(nodo *p){
+    nodo *q;
+    if(p!=NULL){
+        q=p;
+        p=p->sig;
+        delete(q);
+    }
+    else cout<<"LA LISTA ESTA VACIA";
+    return (p);
+}
+nodo *elimina_u(nodo *p){
+    nodo *q, *r;
+    if(p!=NULL){
+        q=p;
+        if(p->sig==NULL){
+            p=NULL;
+        }
+        else{
+            while(q->sig!=NULL){
+                r=q;
+                q=q->sig;
+            }
+            r->sig=NULL;
+        }
+        delete(q); 
+    }
+    else cout<<"LA LISTA ESTA VACIA";
+    return (p);
+}
+nodo *elimina_x(nodo *p, char x[]){
+    nodo *q, *r;
+    int cen;
+    if(p!=NULL){
+        q=p;
+        cen=0;
+        while(strcmp(q->nomb,x)!=0 and cen==0){
+            if(q->sig!=NULL){
+                r=q;
+                q=q->sig;
+            }
+            else 
+                cen=1;
+        }
+        if(cen==0){
+            if(p==q)
+                p=p->sig;
+            else
+                r->sig=q->sig;
+            delete(q);
+        }
+        else cout<<"EL NODO X NO EXISTE";
+    }
+    else cout<<"LA LISTA ESTA VACIA";
+    return (p);
+}
+nodo *elimina_ad(nodo *p, char ref[]){
+    nodo *q, *r, *t;
+    int cen;
+    if(p!=NULL){
+        if(p->nomb==ref){
+            cout<<"NO HAY NODO ANTERIOR AL REFERENCIAL";
+        }
+        else{
+            q=p;
+            r=q;
+            cen=0;
+            while(strcmp(q->nomb,ref)!=0 and cen==0){
+                if(q->sig!=NULL){
+                    t=r;
+                    r=q;
+                    q=q->sig;
+                }
+                else
+                    cen=1;
+            }
+            if(cen==0){
+                if(p->sig==q)
+                    p=q;
+                else
+                    t->sig=q;
+                delete(r);
+            }
+            cout<<"EL NODO REFERENCIAL NO EXISTE";
+        }
+    }
+    else cout<<"LA LISTA ESTA VACIA";
+    return (p);
+}
+nodo *elimina_dd(nodo *p, char ref[]){
+    nodo *q, *r;
+    int cen;
+    if(p!=NULL){
+        q=p;
+        cen=0;
+        while(strcmp(q->nomb,ref)!=0 and cen==0){
+            if(q->sig!=NULL){
+                q=q->sig;
+            }
+            else{
+                cen=1;
+            }
+        }
+        if(cen==0){
+            if(q->sig==NULL){
+                cout<<"NO HAY UN NODO DESPUES DEL REFERENCIAL";
+            }
+            else{
+                r=q->sig;
+                q->sig=r->sig;
+                delete(r);
+            }
+        }
+        else cout<<"NO EXISTE EL NODO REFERENCIAL";
+    }
+    else cout<<"LA LISTA ESTA VACIA";
+    return (p);
+}
 void recorre(nodo *p){
     nodo *q;
     system("cls");

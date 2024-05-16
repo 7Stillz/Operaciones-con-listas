@@ -57,17 +57,39 @@ int main(){
                 cin>>nombre;
                 p=inserta_dd(p,nombre);
                 break;
+            case 7:
+                system("cls");
+                p=elimina_p(p);
+                break;
+            case 8:
+                system("cls");
+                p=elimina_u(p);
+                break;
+            case 9:
+                system("cls");
+                cout<<"ESCRIBA EL DATO DEL NODO QUE QUIERE ELIMINAR: ";
+                cin>>nombre;
+                p=elimina_x(p,nombre);
+                break;
+            case 10:
+                system("cls");
+                cout<<"ESCRIBA EL REFERENCIAL PARA ELIMINAR EL NODO ANTERIOR A ESTE: ";
+                cin>>nombre;
+                p=elimina_ad(p,nombre);
+                break;
+            case 11:
+                system("cls");
+                cout<<"ESCRIBA EL REFERENCIAL PARA ELIMINAR EL NODO POSTERIOR A ESTE: ";
+                cin>>nombre;
+                p=elimina_dd(p,nombre);
+                break;
             case 12:
                 system("cls");
                 recorre(p);
                 system("pause");
                 break;
 
-        }
-
-        
-
+        }      
     }while(op>0 and op<13);
     return 0;
-
 }
